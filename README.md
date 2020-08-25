@@ -38,3 +38,15 @@
 ⚫ 헤어 디자이너와 고객을 연결하는 “플랫폼 서비스”
 - 서비스를 통해 비대면 스타일 상담과 헤어샵 예약이 가능하다.
 - 최근 미용업 시장 트렌드(개인화, 1인샵 증가)및 서비스 트렌드(O2O 플랫폼)
+
+
+## 프로젝트 구조
+
+- HairNet (Deep Learning Network, 핵심 기능) [link](https://git.swmgit.org/swmaestro/elastin/tree/hairnet) [작업 github](https://github.com/eric-yoo/HairNet)
+- HairNet Data Generation [link](https://github.com/papagina/HairNet_DataSetGeneration)
+- HairNet Preprocessing [link](https://github.com/papagina/HairNet_orient2D)
+- Hair, Face Segmentation [link](https://github.com/givenone/hair-segment)
+- Hair Rendering [link](https://github.com/givenone/hair-renderer)
+- 3D Face Reconstruction [link](https://github.com/givenone/face-recon)
+- Unity Application [link](https://git.swmgit.org/swmaestro/elastin/tree/unity)
+- Backend Server [link](https://git.swmgit.org/swmaestro/elastin/tree/server)
