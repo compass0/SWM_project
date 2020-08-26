@@ -42,11 +42,19 @@
 
 ## 프로젝트 구조
 
-- HairNet (Deep Learning Network, 핵심 기능) [link](https://git.swmgit.org/swmaestro/elastin/tree/hairnet) [작업 github](https://github.com/eric-yoo/HairNet)
-- HairNet Data Generation [link](https://github.com/papagina/HairNet_DataSetGeneration)
-- HairNet Preprocessing [link](https://github.com/papagina/HairNet_orient2D)
-- Hair, Face Segmentation [link](https://github.com/givenone/hair-segment)
-- Hair Rendering [link](https://github.com/givenone/hair-renderer)
-- 3D Face Reconstruction [link](https://github.com/givenone/face-recon)
-- Unity Application [link](https://git.swmgit.org/swmaestro/elastin/tree/unity)
-- Backend Server [link](https://git.swmgit.org/swmaestro/elastin/tree/server)
+1. HairNet (Deep Learning Network) [link](https://git.swmgit.org/swmaestro/elastin/tree/hairnet) [dev repo](https://github.com/eric-yoo/HairNet)
+  - 딥러닝 기법을 활용해 2D 머리카락 이미지에서 3D 헤어 모델을 생성
+2. HairNet Data Generation [link](https://github.com/eric-yoo/HairNet_DataSetGeneration)
+  - HairNet의 딥러닝 네트워크 학습을 위한 데이터 생성
+3. Hair, Face Segmentation [link](https://github.com/givenone/hair-segment)
+  - HairNet의 딥러닝 네트워크 추론을 위한 데이터 전처리 모듈 1
+4. HairNet Preprocessing [link](https://github.com/papagina/HairNet_orient2D) [dev repo](https://github.com/compass0/soma-experiment)
+  - HairNet의 딥러닝 네트워크 추론을 위한 데이터 전처리 모듈 2
+5. Hair Rendering [link](https://github.com/givenone/hair-renderer) 
+  - HairNet의 딥러닝 네트워크 추론 결과 (3D hair model) 렌더링
+6. 3D Face Reconstruction [link](https://github.com/givenone/face-recon)
+  - eos 라이브러리를 활용한 3D face model 렌더링
+7. Unity Application [link](https://git.swmgit.org/swmaestro/elastin/tree/unity)
+  - 클라이언트 애플리케이션 (3D hair model 렌더링 및 편집)
+8. Backend Server [link](https://git.swmgit.org/swmaestro/elastin/tree/server) [dev repo](https://git.swmgit.org/swmaestro/elastin/tree/server-dev)
+  - 웹서버 및 딥러닝 엔진 (데이터 전처리 모듈 2개 및 HairNet 추론)
