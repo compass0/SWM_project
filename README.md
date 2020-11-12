@@ -90,7 +90,7 @@
         - 관련 브랜치: 
     - Unity Application 
         - 3D face & hair 모델 렌더링, 헤어 조작을 위한 편집 기능, 서버 통신을 통한 딥러닝 인퍼런스, 사용자 인터페이스 구현
-        - 관련 브랜치: [`unity`](https://git.swmgit.org/swmaestro/elastin/tree/unity) [`kyeontae_unity`](https://git.swmgit.org/swmaestro/elastin/tree/kyeontae_unity) [`junwon_unity`](https://git.swmgit.org/swmaestro/elastin/tree/junwon_unity) [`junwon-unity2`](https://git.swmgit.org/swmaestro/elastin/tree/junwon-unity2) [`optimized unity`](https://git.swmgit.org/swmaestro/elastin/tree/optimized unity) [`unity-restapi`](https://git.swmgit.org/swmaestro/elastin/tree/unity-restapi)
+        - 관련 브랜치: [`unity`](https://git.swmgit.org/swmaestro/elastin/tree/unity) [`kyeontae_unity`](https://git.swmgit.org/swmaestro/elastin/tree/kyeontae_unity) [`junwon_unity`](https://git.swmgit.org/swmaestro/elastin/tree/junwon_unity) [`junwon-unity2`](https://git.swmgit.org/swmaestro/elastin/tree/junwon-unity2) [`optimized_unity`](https://git.swmgit.org/swmaestro/elastin/tree/optimized_unity) [`unity-restapi`](https://git.swmgit.org/swmaestro/elastin/tree/unity-restapi)
     
 
 
