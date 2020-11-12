@@ -56,25 +56,42 @@
 
 ## Project Structure
 
-- `master` 브랜치가 다른 브랜치들을 submodule 형태로 tracking한다.<br>
-크게는 딥러닝 및 앱 서버 구현체 (server) / 유니티 클라이언트 구현체 (unity)로 구분되며 각 브랜치에 상세되어 있다.
+- `master` 브랜치가 다른 브랜치 및 외부 디펜던시들을 submodule 형태로 tracking한다.<br>
+크게는 딥러닝 및 앱 서버 구현체 (backend) / 유니티 클라이언트 구현체 (frontend)로 구분되며 각 브랜치에 상세되어 있다.
 
-1. HairNet (Deep Learning Network) [link](https://git.swmgit.org/swmaestro/elastin/tree/hairnet) [dev repo](https://github.com/eric-yoo/HairNet)
-    - 딥러닝 기법을 활용해 2D 머리카락 이미지에서 3D 헤어 모델을 생성
-2. HairNet Data Generation [link](https://github.com/eric-yoo/HairNet_DataSetGeneration)
-    - HairNet의 딥러닝 네트워크 학습을 위한 데이터 생성
-3. Hair, Face Segmentation [link](https://github.com/givenone/hair-segment)
-    - HairNet의 딥러닝 네트워크 추론을 위한 데이터 전처리 모듈 1
-4. HairNet Preprocessing [link](https://github.com/papagina/HairNet_orient2D) [dev repo](https://github.com/compass0/soma-experiment)
-    - HairNet의 딥러닝 네트워크 추론을 위한 데이터 전처리 모듈 2
-5. Hair Rendering [link](https://github.com/givenone/hair-renderer) 
-    - HairNet의 딥러닝 네트워크 추론 결과 (3D hair model) 렌더링
-6. 3D Face Reconstruction [link](https://github.com/givenone/face-recon)
-    - eos 라이브러리를 활용한 3D face model 렌더링
-7. Unity Application [link](https://git.swmgit.org/swmaestro/elastin/tree/unity)
-    - 클라이언트 애플리케이션 (3D hair model 렌더링 및 편집)
-8. Backend Server [link](https://git.swmgit.org/swmaestro/elastin/tree/server) [dev repo](https://git.swmgit.org/swmaestro/elastin/tree/server-dev)
-    - 웹서버 및 딥러닝 엔진 (데이터 전처리 모듈 2개 통합 및 HairNet 추론)
+
+- backend
+    - App Server
+        - 장고 기반 앱 서버로, 클라이언트 요청에 따라 데이터 전처리 모듈, 딥러닝 엔진 추론 결과 등을 응답
+        - 관련 브랜치: [`server`](https://git.swmgit.org/swmaestro/elastin/tree/server) [R&D repo](https://git.swmgit.org/swmaestro/elastin/tree/server-dev)
+    - Deep Learning
+        - Semantic Segmentation
+            - face & hair reconstruction을 위한 데이터 첫번째 전처리 과정으로, PSPnet을 사용해 2D 이미지 내의 Hair/Face/Background 영역 구분
+            - 관련 브랜치: [R&D repo](https://github.com/givenone/hair-segment)
+        - Orientation Map Extraction
+            - face & hair reconstruction을 위한 데이터 두번째 전처리 과정으로, hair 영역 내에서 결 방향 정보를 추출
+            - 관련 브랜치: [reference](https://github.com/papagina/HairNet_orient2D) [R&D repo](https://github.com/compass0/soma-experiment)
+        - HairNet
+            - HairNet 네트워크 학습을 위한 데이터 생성
+            - 딥러닝 네트워크 구조 경량화 및 multi-gpu 학습을 위한 실험
+            - 네트워크 추론을 통해 2D 머리카락 이미지에서 3D 헤어 모델을 생성 
+            - 관련 브랜치: [`model-training`](https://git.swmgit.org/swmaestro/elastin/tree/model-training) [`hairnet`](https://git.swmgit.org/swmaestro/elastin/tree/hairnet) [R&D repo](https://github.com/eric-yoo/HairNet)
+        - SimCLR-hair 
+            - Orientation Map 결과를 인코딩하여 결과값 간 상호 유사도를 비지도 학습, 그 결과로 유사 헤어 모델 추천
+            - 관련 브랜치: [`feat/simclr-hair`](https://git.swmgit.org/swmaestro/elastin/tree/feat/simclr-hair) [R&D repo](https://github.com/eric-yoo/simclr-hair) [R&D repo](https://github.com/givenone/hair_feature)
+    - 3D Face Reconstruction 
+        - eos 라이브러리를 활용한 3D face model 렌더링
+        - 관련 브랜치: [R&D repo](https://github.com/givenone/face-recon) [submodule](https://github.com/eric-yoo/face-recon)
+
+
+- frontend
+    - Hair Rendering with OpenGL
+        - HairNet의 딥러닝 네트워크 추론 결과 (3D hair model) 시각화 및 렌더링 기법 연구
+        - 관련 브랜치: 
+    - Unity Application 
+        - 3D face & hair 모델 렌더링, 헤어 조작을 위한 편집 기능, 서버 통신을 통한 딥러닝 인퍼런스, 사용자 인터페이스 구현
+        - 관련 브랜치: [`unity`](https://git.swmgit.org/swmaestro/elastin/tree/unity) [`kyeontae_unity`](https://git.swmgit.org/swmaestro/elastin/tree/kyeontae_unity) [`junwon_unity`](https://git.swmgit.org/swmaestro/elastin/tree/junwon_unity) [`junwon-unity2`](https://git.swmgit.org/swmaestro/elastin/tree/junwon-unity2) [`optimized unity`](https://git.swmgit.org/swmaestro/elastin/tree/optimized unity) [`unity-restapi`](https://git.swmgit.org/swmaestro/elastin/tree/unity-restapi)
+    
 
 
 ## Demo
